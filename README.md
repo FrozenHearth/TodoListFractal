@@ -1,6 +1,7 @@
 ## Todo-List
 
-A simple todo-list made using React, React-Router, Redux, plain CSS & localStorage.
+1. A simple todo-list made using React, React-Router & Redux.
+2. Used plain CSS for styling and localStorage for persisting data on reload.
 
 ## Steps to run this project locally:
 
