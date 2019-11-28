@@ -1,3 +1,7 @@
+## Todo-List
+
+A simple todo-list made using React, React-Router, Redux, plain CSS & localStorage.
+
 ## Steps to run this project locally:
 
 1. Make sure you have [Create-React-App](https://github.com/facebook/create-react-app) installed.
