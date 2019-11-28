@@ -1,0 +1,74 @@
+.todo-input {
+  display: flex;
+  width: 40%;
+  padding: 20px;
+  margin: -2em auto 0.1em auto;
+  outline: 0;
+  background: #fefefe;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee;
+  font-size: 1.7em;
+  font-weight: 300;
+  text-indent: 25px;
+}
+
+.todo-input::placeholder {
+  color: #cdcdcd;
+  font-style: italic;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+.todo-bucket-input {
+  display: flex;
+  width: 40%;
+  padding: 20px;
+  margin: 0.5em auto 0.1em auto;
+  outline: 0;
+  background: #fefefe;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee;
+  font-size: 1.7em;
+  font-weight: 300;
+  text-indent: 25px;
+}
+
+.todo-bucket-input::placeholder {
+  color: #cdcdcd;
+  font-style: italic;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+/* Ripple effect */
+.add-todo-btn {
+  border: none;
+  margin-top: 0.5em;
+  width: 43%;
+  padding: 2em;
+  font-size: 1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: black;
+  background-color: #fefefe;
+  font-style: italic;
+  box-shadow: 0 0 4px rgb(212, 212, 212);
+  outline: none;
+  background-position: center;
+  transition: background 0.8s;
+}
+.add-todo-btn:hover {
+  background: #f1f1f1 radial-gradient(circle, transparent 1%, #fbf6f6 1%)
+    center/15000%;
+}
+.add-todo-btn:active {
+  background-color: #f8f4f4;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.add-todo-btn:active {
+  transition: background 0s;
+}

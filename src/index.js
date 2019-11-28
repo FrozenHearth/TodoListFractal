@@ -2,11 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import TodoEdit from './components/TodoEdit';
+import { Provider } from 'react-redux';
+import ReduxToastr from 'react-redux-toastr';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store = createStore(rootReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ReduxToastr
+      timeOut={4000}
+      newestOnTop={false}
+      preventDuplicates
+      position="top-right"
+      getState={state => state.toastr} // This is the default
+      transitionIn="fadeIn"
+      transitionOut="fadeOut"
+      progressBar
+      closeOnToastrClick
+    />
+
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/edit-todo/:id" component={TodoEdit} />
+      </Switch>
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
