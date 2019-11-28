@@ -1,6 +1,6 @@
 ## Steps to run this project locally:
 
-1. Make sure you have (https://github.com/facebook/create-react-app)create-react-app installed.
+1. Make sure you have [Create-React-App](https://github.com/facebook/create-react-app) installed.
 
 2. Clone the repo.
 
