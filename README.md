@@ -2,6 +2,7 @@
 
 1. A simple todo-list made using React, React-Router & Redux.
 2. Used plain CSS for styling and localStorage for persisting data on reload.
+3. Used Redux-Toastr for showing toastr messages.
 
 ## Steps to run this project locally:
 
