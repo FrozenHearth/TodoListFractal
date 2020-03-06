@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
 import { connect } from 'react-redux';
@@ -10,9 +10,8 @@ import {
   getAllTodos
 } from '../actions/todoActions';
 import '../styles/todoList.css';
-import _ from 'lodash';
 
-class TodoList extends React.Component {
+class TodoList extends Component {
   state = {
     todos: [],
     todosToShow: 'all',
@@ -26,8 +25,9 @@ class TodoList extends React.Component {
     }
   }
 
-  componentDidUpdate(props) {
-    localStorage.setItem('todos', JSON.stringify(this.props.todos));
+  componentDidUpdate(prevProps) {
+    if (this.props.todos !== prevProps.todos)
+      localStorage.setItem('todos', JSON.stringify(this.props.todos));
   }
 
   toggleCompleted = id => {
@@ -37,7 +37,7 @@ class TodoList extends React.Component {
   updateTodoToShow = (todo, activeTodo) => {
     this.setState({
       todosToShow: todo,
-      activeTodo: activeTodo
+      activeTodo
     });
   };
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/todoItem.css';
 import { getSingleTodo, updateTodo } from '../actions/todoActions';
-import _ from 'lodash';
 
 class TodoEdit extends Component {
   constructor(props) {
@@ -54,6 +53,7 @@ class TodoEdit extends Component {
     this.props.history.push('/');
   };
   render() {
+    const { todoText } = this.state;
     return (
       <form autoComplete="off" onSubmit={this.handleUpdateTodo}>
         <input
@@ -62,7 +62,7 @@ class TodoEdit extends Component {
           onChange={this.handleChange}
           name="todoText"
           type="text"
-          value={this.state.todoText}
+          value={todoText}
         />
       </form>
     );
