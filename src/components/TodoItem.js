@@ -6,6 +6,7 @@ import { FaEdit } from 'react-icons/fa';
 
 class TodoItem extends Component {
   render() {
+    const { id } = this.props.todo;
     return (
       <div className="todo-item">
         <p className="category"> {this.props.todo.category}</p>
@@ -21,7 +22,7 @@ class TodoItem extends Component {
           {this.props.todo.todoText}
         </p>
         <div className="icon-container">
-          <Link to={`/edit-todo/${this.props.todo.id}`}>
+          <Link to={`/edit-todo/${id}`}>
             <button className="edit-icon">
               <FaEdit />
             </button>
