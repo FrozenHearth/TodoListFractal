@@ -20,30 +20,34 @@ class TodoEdit extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.singleTodo[0] !== this.props.singleTodo[0]) {
+      const { id, todoText, complete } = this.props.singleTodo[0];
       this.setState({
-        todoText: this.props.singleTodo[0].todoText,
-        complete: this.props.singleTodo[0].complete,
-        id: this.props.singleTodo[0].id
+        todoText,
+        complete,
+        id
       });
     }
   }
 
   getSingleTodo = () => {
-    this.props.getSingleTodo(this.props.match.params.id);
+    const { id } = this.props.match.params;
+    this.props.getSingleTodo(id);
   };
 
   handleChange = e => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
   handleUpdateTodo = e => {
     e.preventDefault();
+    const { todoText, complete, id } = this.state;
     const todo = {
-      todo: this.state.todoText,
-      complete: this.state.complete,
-      id: this.state.id
+      todo: todoText,
+      complete,
+      id
     };
     this.props.updateTodo(todo);
 
