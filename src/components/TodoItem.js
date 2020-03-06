@@ -1,40 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/todoItem.css';
 import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 
-class TodoItem extends Component {
-  render() {
-    const { id } = this.props.todo;
-    return (
-      <div className="todo-item">
-        <p className="category"> {this.props.todo.category}</p>
-        <p
-          style={{
-            textDecoration: this.props.todo.complete ? 'line-through' : 'none',
-            color: this.props.todo.complete ? '#cdcdcd' : 'black',
-            fontStyle: this.props.todo.complete ? 'italic' : 'normal'
-          }}
-          onClick={this.props.toggleCompleted}
-          className="todo-text"
-        >
-          {this.props.todo.todoText}
-        </p>
-        <div className="icon-container">
-          <Link to={`/edit-todo/${id}`}>
-            <button className="edit-icon">
-              <FaEdit />
-            </button>
-          </Link>
-          <button onClick={this.props.deleteTodo} className="delete-btn">
-            X
+const TodoItem = props => {
+  const { id, category, complete, todoText } = props.todo;
+  const { toggleCompleted, deleteTodo } = props;
+  return (
+    <div className="todo-item">
+      <p className="category"> {category}</p>
+      <p
+        style={{
+          textDecoration: complete ? 'line-through' : 'none',
+          color: complete ? '#cdcdcd' : 'black',
+          fontStyle: complete ? 'italic' : 'normal'
+        }}
+        onClick={toggleCompleted}
+        className="todo-text"
+      >
+        {todoText}
+      </p>
+      <div className="icon-container">
+        <Link to={`/edit-todo/${id}`}>
+          <button className="edit-icon">
+            <FaEdit />
           </button>
-        </div>
+        </Link>
+        <button onClick={deleteTodo} className="delete-btn">
+          X
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
