@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import shortid from 'shortid';
 import { connect } from 'react-redux';
 import { toastr } from 'react-redux-toastr';
@@ -6,7 +6,7 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import { addTodo } from '../actions/todoActions';
 import '../styles/todoInput.css';
 
-class TodoInput extends React.Component {
+class TodoInput extends Component {
   constructor(props) {
     super(props);
 
@@ -18,20 +18,20 @@ class TodoInput extends React.Component {
   }
 
   handleChange = e => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target;
     this.setState({
       [name]: value
     });
   };
   handleAddTodo = e => {
     e.preventDefault();
-    const todoText = this.state.todoText.trim();
-    const category = this.state.category.trim();
+    const { todoText, category } = this.state;
+    todoText.trim();
+    category.trim();
     if (todoText.length > 0 && category.length > 0) {
       const todo = {
-        todoText: this.state.todoText,
-        category: this.state.category,
+        todoText,
+        category,
         complete: false,
         id: shortid.generate()
       };
@@ -44,11 +44,12 @@ class TodoInput extends React.Component {
     }
   };
   render() {
+    const { todoText, category } = this.state;
     return (
       <form autoComplete="off">
         <input
           className="todo-input"
-          value={this.state.todoText}
+          value={todoText}
           onChange={this.handleChange}
           name="todoText"
           type="text"
@@ -56,7 +57,7 @@ class TodoInput extends React.Component {
         />
         <input
           className="todo-bucket-input"
-          value={this.state.category}
+          value={category}
           onChange={this.handleChange}
           name="category"
           type="text"
@@ -70,10 +71,6 @@ class TodoInput extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     addTodo: todo => {
@@ -82,4 +79,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);
+export default connect(null, mapDispatchToProps)(TodoInput);
