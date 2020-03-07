@@ -11,13 +11,8 @@ const TodoItem = props => {
     <div className="todo-item">
       <p className="category"> {category}</p>
       <p
-        style={{
-          textDecoration: complete ? 'line-through' : 'none',
-          color: complete ? '#cdcdcd' : 'black',
-          fontStyle: complete ? 'italic' : 'normal'
-        }}
+        className={complete ? 'todo-complete-text todo-text' : 'todo-text'}
         onClick={toggleCompleted}
-        className="todo-text"
       >
         {todoText}
       </p>

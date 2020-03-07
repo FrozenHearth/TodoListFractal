@@ -23,6 +23,12 @@
   cursor: pointer;
 }
 
+.todo-complete-text {
+  text-decoration: line-through;
+  color: #cdcdcd;
+  font-style: italic;
+}
+
 .icon-container {
   margin-left: auto;
 }
