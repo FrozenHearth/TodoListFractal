@@ -40,9 +40,12 @@ export default (state = initState, action) => {
       break;
     case DELETE_TODO:
       if (action.type === DELETE_TODO && action.id) {
+        const filteredTodos = [
+          ...state.todos.filter(todo => todo.id !== action.id)
+        ];
         return {
           ...state,
-          todos: [...state.todos.filter(todo => todo.id !== action.id)]
+          todos: filteredTodos
         };
       }
       break;
@@ -67,11 +70,13 @@ export default (state = initState, action) => {
       break;
     case GET_TODO:
       if (action.type === GET_TODO && action.id) {
-        const singleTodo = state.todos.filter(todo => todo.id === action.id);
+        const singleTodo = [
+          ...state.todos.filter(todo => todo.id === action.id)
+        ];
 
         return {
           ...state,
-          singleTodo: singleTodo
+          singleTodo
         };
       }
       break;
