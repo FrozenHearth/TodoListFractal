@@ -17,8 +17,8 @@ export default (state = initState, action) => {
     case ADD_TODO:
       if (action.type === ADD_TODO && action.todo) {
         const todo = action.todo;
-        const newTodos = [...state.todos, todo];
-        return { ...state, todos: newTodos };
+        const todos = [...state.todos, todo];
+        return { ...state, todos };
       }
       break;
     case UPDATE_TODO:
