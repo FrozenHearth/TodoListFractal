@@ -31,8 +31,9 @@ const TodoItem = props => {
 };
 
 const mapStateToProps = state => {
+  const { singleTodo } = state.todo
   return {
-    singleTodo: state.todo.singleTodo
+    singleTodo
   };
 };
 
