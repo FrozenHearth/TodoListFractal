@@ -4,14 +4,11 @@ import '../styles/todoItem.css';
 import { getSingleTodo, updateTodo } from '../actions/todoActions';
 
 class TodoEdit extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       todoText: '',
       complete: false,
       id: ''
     };
-  }
 
   componentDidMount() {
     this.getSingleTodo();
@@ -49,7 +46,6 @@ class TodoEdit extends Component {
       id
     };
     this.props.updateTodo(todo);
-
     this.props.history.push('/');
   };
   render() {
@@ -57,7 +53,6 @@ class TodoEdit extends Component {
     return (
       <form autoComplete="off" onSubmit={this.handleUpdateTodo}>
         <input
-          style={{ marginTop: '2em' }}
           className="todo-input"
           onChange={this.handleChange}
           name="todoText"
