@@ -1,7 +1,6 @@
 ## Todo-List
 
-1. A todo-list made using React, React-Router & Redux.
-2. Used Redux-Toastr for showing toastr messages.
+1. A todo-list made using React & Redux.
 
 ## Steps to run this project locally:
 
